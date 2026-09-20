@@ -1,80 +1,51 @@
-# Hugo GitHub Pages Starter
+# Hugo Page Bundle Sample
 
-Markdownで記事を書き、Hugoで静的HTMLを生成し、
-GitHub Actions経由でGitHub Pagesへ公開する最小構成です。
+既存の単体Markdown記事と、Page Bundle形式の記事を混在させるサンプルです。
 
-## 1. ローカルで確認
+## 構成
 
-Hugoをインストール後:
+```text
+content/posts/
+├── first-post.md
+└── page-bundle-sample/
+    ├── index.md
+    ├── sample-diagram.svg
+    └── memo.txt
+```
+
+## 新しいPage Bundle記事を作る
+
+例:
+
+```bash
+hugo new content posts/timer-rev2/index.md
+```
+
+すると以下のような記事を作れます。
+
+```text
+content/posts/timer-rev2/
+└── index.md
+```
+
+同じディレクトリへ画像を追加します。
+
+```text
+content/posts/timer-rev2/
+├── index.md
+├── schematic.png
+└── pcb.jpg
+```
+
+Markdownからは相対パスで参照できます。
+
+```markdown
+![回路図](schematic.png)
+![PCB](pcb.jpg)
+```
+
+## ローカル確認
 
 ```bash
 hugo server -D
 ```
-
-ブラウザで以下を開きます。
-
-```text
-http://localhost:1313
-```
-
-## 2. GitHubへpush
-
-```bash
-git init
-git add .
-git commit -m "Initial Hugo site"
-git branch -M main
-git remote add origin https://github.com/USERNAME/REPOSITORY.git
-git push -u origin main
-```
-
-## 3. GitHub Pagesを有効化
-
-GitHubリポジトリで:
-
-Settings
-→ Pages
-→ Build and deployment
-→ Source
-→ GitHub Actions
-
-を選択してください。
-
-## 4. 記事を書く
-
-`content/posts/` にMarkdownファイルを追加します。
-
-例:
-
-```text
-content/posts/my-second-post.md
-```
-
-```markdown
----
-title: "My Second Post"
-date: 2026-09-20
-draft: false
----
-
-本文を書く。
-```
-
-その後:
-
-```bash
-git add .
-git commit -m "Add second post"
-git push
-```
-
-これだけで自動ビルド・公開されます。
-
-## 5. 注意
-
-`hugo.toml` の `baseURL` は仮の値です。
-
-GitHub Actionsでのデプロイ時はPagesのURLを自動取得してビルドするため、
-テスト段階ではそのままでも動作します。
-
-独自ドメインを設定する場合は、後ほど `baseURL` も合わせて変更すると分かりやすいです。

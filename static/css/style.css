@@ -43,6 +43,13 @@ article {
   max-width: 760px;
 }
 
+article img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 1.5rem auto;
+}
+
 .meta {
   opacity: 0.65;
   margin-top: -0.8rem;

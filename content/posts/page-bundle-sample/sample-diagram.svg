@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="360" viewBox="0 0 900 360">
+  <rect width="900" height="360" fill="#f7f7f7"/>
+  <rect x="70" y="120" width="180" height="110" rx="12" fill="white" stroke="#555" stroke-width="2"/>
+  <rect x="360" y="120" width="180" height="110" rx="12" fill="white" stroke="#555" stroke-width="2"/>
+  <rect x="650" y="120" width="180" height="110" rx="12" fill="white" stroke="#555" stroke-width="2"/>
+  <text x="160" y="180" text-anchor="middle" font-size="28" font-family="sans-serif">Markdown</text>
+  <text x="450" y="180" text-anchor="middle" font-size="28" font-family="sans-serif">Hugo</text>
+  <text x="740" y="180" text-anchor="middle" font-size="28" font-family="sans-serif">GitHub Pages</text>
+  <line x1="250" y1="175" x2="360" y2="175" stroke="#555" stroke-width="3"/>
+  <polygon points="360,175 345,166 345,184" fill="#555"/>
+  <line x1="540" y1="175" x2="650" y2="175" stroke="#555" stroke-width="3"/>
+  <polygon points="650,175 635,166 635,184" fill="#555"/>
+</svg>

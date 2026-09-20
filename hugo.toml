@@ -1,9 +1,29 @@
-baseURL = "https://USERNAME.github.io/REPOSITORY/"
+baseURL = "https://koki0423.github.io/technical_blogs/"
 languageCode = "ja-jp"
 title = "Koki's Lab Notes"
 
 [params]
   description = "Research, homelab, electronics, and technical notes."
+
+  [[params.tagOptions]]
+    key = "research"
+    label = "Research"
+
+  [[params.tagOptions]]
+    key = "homelab"
+    label = "Homelab"
+
+  [[params.tagOptions]]
+    key = "network"
+    label = "Network"
+
+  [[params.tagOptions]]
+    key = "electronics"
+    label = "Electronics"
+
+  [[params.tagOptions]]
+    key = "other"
+    label = "その他"
 
 [markup]
   [markup.highlight]

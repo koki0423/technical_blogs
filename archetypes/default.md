@@ -3,7 +3,9 @@ title: "{{ replace .File.ContentBaseName "-" " " | title }}"
 date: {{ .Date }}
 draft: true
 tags:
-  -
+  # 使用可能タグ（小文字で入力）: research / homelab / network / electronics / other（その他）
+  # 分類しきれない記事は other を使用する。
+  - other
 ---
 
 # {{ replace .File.ContentBaseName "-" " " | title }}

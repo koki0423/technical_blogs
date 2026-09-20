@@ -1,14 +1,43 @@
 {{ define "main" }}
-<h1>{{ .Title }}</h1>
+<header class="page-heading">
+  <p class="eyebrow">Archive</p>
+  <h1>{{ .Title }}</h1>
+  {{ with .Content }}<div class="page-intro">{{ . }}</div>{{ end }}
+</header>
 
-{{ .Content }}
+{{ if and (eq .Kind "section") (eq .Section "posts") }}
+  <section class="post-filter" data-post-filter aria-label="タグで記事を絞り込む">
+    <div class="post-filter-heading">
+      <p class="eyebrow">Filter</p>
+      <p>タグを選択</p>
+    </div>
+    <div class="tag-filter-list" role="group" aria-label="タグ一覧">
+      <button class="tag-filter-button is-active" type="button" data-tag-filter="all" aria-pressed="true">All <span>{{ len .Pages }}</span></button>
+      {{ range $option := .Site.Params.tagOptions }}
+        {{ $pages := index $.Site.Taxonomies.tags $option.key }}
+        <button class="tag-filter-button" type="button" data-tag-filter="{{ $option.key }}" aria-pressed="false">{{ $option.label }} <span>{{ len $pages }}</span></button>
+      {{ end }}
+    </div>
+    <p class="post-filter-status" data-post-filter-status aria-live="polite">すべての記事を表示しています。</p>
+  </section>
+{{ end }}
 
-<ul class="post-list">
+<ul class="post-list" data-post-list>
   {{ range .Pages.ByDate.Reverse }}
-    <li>
-      <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-      <span>{{ .Date.Format "2006-01-02" }}</span>
+    {{ $postTags := slice }}
+    {{ range .Params.tags }}{{ $postTags = $postTags | append (. | urlize) }}{{ end }}
+    <li data-post-item data-tags="{{ delimit $postTags "," }}">
+      <a class="post-list-link" href="{{ .RelPermalink }}">
+        <span class="post-list-main">
+          <span class="post-list-title">{{ .Title }}</span>
+          {{ with .Summary }}<span class="post-list-summary">{{ . | plainify | truncate 110 }}</span>{{ end }}
+        </span>
+        <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006.01.02" }}</time>
+        <span class="post-arrow" aria-hidden="true">↗</span>
+      </a>
     </li>
+  {{ else }}
+    <li class="post-empty">まだ記事がありません。</li>
   {{ end }}
 </ul>
 {{ end }}

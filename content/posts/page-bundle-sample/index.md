@@ -3,11 +3,8 @@ title: "Page Bundle のテスト"
 date: 2026-09-20T21:00:00+09:00
 draft: false
 tags:
-  - hugo
-  - page-bundle
+  - other
 ---
-
-# Page Bundle のテスト
 
 この記事は Page Bundle 形式です。
 

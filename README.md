@@ -49,3 +49,6 @@ Markdownからは相対パスで参照できます。
 ```bash
 hugo server -D
 ```
+
+このリポジトリの `baseURL` は GitHub Pages の公開先を示しているため、ローカルでは
+`http://localhost:1313/technical_blogs/` を開いて確認します。

@@ -1,0 +1,10 @@
+baseURL = "https://USERNAME.github.io/REPOSITORY/"
+languageCode = "ja-jp"
+title = "Koki's Lab Notes"
+
+[params]
+  description = "Research, homelab, electronics, and technical notes."
+
+[markup]
+  [markup.highlight]
+    noClasses = false
